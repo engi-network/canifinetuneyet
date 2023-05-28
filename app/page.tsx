@@ -86,6 +86,7 @@ export default function Home() {
           root
           }) => (
             <div
+              key={id}
               className="group rounded-lg border border-transparent px-5 py-4 transition-colors border-gray-300 bg-gray-100 dark:border-neutral-700 dark:bg-neutral-800/30"
             >
               <h2 className={`mb-3 text-2xl font-semibold flex`}>
