@@ -21,8 +21,8 @@ const NoFineTune = () => (
 )
 
 export default function Home() {
-  const [models, setModels] = useState([])
-  const [search, setSearch] = useState()
+  const [models, setModels] = useState<Model[]>([])
+  const [search, setSearch] = useState<string>()
   const [fineTunableOnly, setFineTuneableOnly] = useState(false)
 
   useEffect(() => {

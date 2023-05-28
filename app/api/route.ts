@@ -8,7 +8,7 @@ export async function GET() {
     },
   });
 
-  const data = await res.json();
+  const data = await res.json() as { data: Model[] };
 
   const openAIModels = data.data.filter(model => model.owned_by === "openai")
  
