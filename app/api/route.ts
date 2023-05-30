@@ -10,7 +10,7 @@ export async function GET() {
 
   const data = await res.json() as { data: Model[] };
 
-  const openAIModels = data.data.filter(model => model.owned_by === "openai")
+  const openAIModels = data.data.filter(model => model.owned_by === "openai").sort(({ permission }) => Number(permission[0].allow_fine_tuning) ? -1 : 1)
  
   return NextResponse.json(openAIModels);
 }
