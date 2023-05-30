@@ -45,7 +45,8 @@ export async function GET() {
       return {
         id,
         tune: await canFineTune(id),
-        base
+        base,
+        organization: Organization.OpenAI
       } as Model
     })()
   ))).sort(({ tune }) => Number(tune) ? -1 : 1)
