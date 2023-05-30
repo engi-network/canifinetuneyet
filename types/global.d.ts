@@ -14,14 +14,10 @@ declare global {
     permission: Permission[]
   }
 
-  enum Organization {
-    OpenAI
-  }
-
   interface Model {
     id: string
     base: string
-    organization: Oranization
+    organization: string
     tune: boolean
   }
 }

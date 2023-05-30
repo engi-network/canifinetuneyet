@@ -24,7 +24,7 @@ const canFineTune = async (model: string) => {
 
     return true
   } catch (err) {
-    console.log(`Could not fine-tune ${model}`, err.response.data.error.message);
+    console.log(`Could not fine-tune ${model}`, (err as any).response.data.error.message);
     return false
   }
 }
@@ -39,6 +39,7 @@ export async function GET() {
 
   const data = await res.json() as { data: OpenAIModel[] };
 
+  // filter out models created by the api key's account (such as fine-tuned models)
   const openAIModels = data.data.filter(model => model.owned_by === "openai")
 
   const fineTuneableModels = (await Promise.all(openAIModels.map(({ id, root: base }) => (async () => {
@@ -46,7 +47,7 @@ export async function GET() {
         id,
         tune: await canFineTune(id),
         base,
-        organization: Organization.OpenAI
+        organization: 'openai' // TODO: support multiple LLMs!
       } as Model
     })()
   ))).sort(({ tune }) => Number(tune) ? -1 : 1)
