@@ -39,16 +39,16 @@ export async function GET() {
 
   const data = await res.json() as { data: OpenAIModel[] };
 
-  const openAIModels = data.data.filter(model => model.owned_by === "openai").sort(({ permission }) => Number(permission[0].allow_fine_tuning) ? -1 : 1)
+  const openAIModels = data.data.filter(model => model.owned_by === "openai")
 
-  const fineTuneableModels = await Promise.all(openAIModels.map(({ id, root: base }) => (async () => {
-    return {
-      id,
-      tune: await canFineTune(id),
-      base
-    } as Model
-  })()
-  ))
+  const fineTuneableModels = (await Promise.all(openAIModels.map(({ id, root: base }) => (async () => {
+      return {
+        id,
+        tune: await canFineTune(id),
+        base
+      } as Model
+    })()
+  ))).sort(({ tune }) => Number(tune) ? -1 : 1)
  
   return NextResponse.json(fineTuneableModels);
 }
