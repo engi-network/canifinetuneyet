@@ -3,14 +3,25 @@
 export {}
 
 declare global {
-  interface Permission {
+  interface OpenAIModelPermission {
     allow_fine_tuning: boolean
   }
 
-  interface Model {
+  interface OpenAIModel {
     id: string
     root: string
     owned_by: string
     permission: Permission[]
+  }
+
+  enum Organization {
+    OpenAI
+  }
+
+  interface Model {
+    id: string
+    base: string
+    organization: Oranization
+    tune: boolean
   }
 }

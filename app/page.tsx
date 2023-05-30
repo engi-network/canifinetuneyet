@@ -82,30 +82,30 @@ export default function Home() {
       <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left gap-4">
         {models
         .filter(({ id }) => search ? id.includes(search) : true)
-        .filter(({ permission }) => fineTunableOnly ? permission[0].allow_fine_tuning : true)
+        .filter(({ tune }) => fineTunableOnly ? tune : true)
         .map(({
           id,
-          permission,
-          root
+          tune,
+          base
           }) => (
             <div
               key={id}
               className={classNames({
                   "group shadow rounded-lg px-5 py-4 transition-colors border-gray-300 bg-gray-500 dark:border-neutral-700 dark:bg-neutral-800/30": true,
-                  "shadow-red-500": !permission[0].allow_fine_tuning,
-                  "shadow-[#65feb7]": permission[0].allow_fine_tuning
+                  "shadow-red-500": !tune,
+                  "shadow-[#65feb7]": tune
                   })}
             >
               <div className='flex items-center space-x-4'>
-                {permission[0].allow_fine_tuning ? <YesFineTune /> : <NoFineTune />}
+                {tune ? <YesFineTune /> : <NoFineTune />}
                 <h2 className={`text-3xl font-semibold`}>
                   {id}
                 </h2>
               </div>
 
-              {root !== id && (
+              {base !== id && (
                 <p className={`m-0 max-w-[30ch] text-sm opacity-50 mt-3`}>
-                  Base Model:{' '}{root}
+                  Base Model:{' '}{base}
                 </p>
               )}
             </div>
