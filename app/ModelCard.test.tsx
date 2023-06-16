@@ -1,9 +1,9 @@
 import { StorybookTest } from '@engi.network/design-matcher/plugin/types';
 
 const modelCardDesignTest: StorybookTest = {
-  component: 'ModelCard',
-  story: 'Model Card Story',
-  design: 'ModelCardDesign.png',
+  component: 'M',
+  story: 'M',
+  design: 'app/ModelCardDesign.png',
   args: {
     tune: true
   }
