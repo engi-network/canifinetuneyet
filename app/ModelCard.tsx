@@ -21,9 +21,9 @@ const NoFineTune = () => (
 const ModelCard = ({ tune, id, base }: Model) => (
   <div
     className={classNames({
-        "group shadow rounded-lg px-5 py-4 transition-colors border-gray-300 bg-gray-500 dark:border-neutral-700 dark:bg-neutral-800/30": true,
-        "shadow-red-500": !tune,
-        "shadow-[#65feb7]": tune
+        "group shadow rounded-lg px-5 py-4 max-w-lg transition-colors border bg-gray-500 dark:bg-neutral-800/30": true,
+        "border-red-500": !tune,
+        "border-[#65feb7]": tune
         })}
   >
     <div className='flex items-center space-x-4'>
