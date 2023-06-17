@@ -3,7 +3,7 @@ version: "3.9"
 services:
   tests:
     build: .
-    command: /bin/sh -c "/code/node_modules/.bin/jest --json | tee $ENGI_WORKING_DIR/jest.json"
+    command: jest --json | tee $ENGI_WORKING_DIR/jest.json
     volumes:
       - type: volume
         source: output

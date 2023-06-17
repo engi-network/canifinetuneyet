@@ -4,4 +4,5 @@ WORKDIR /code
 
 COPY . .
 
+RUN npm install -g jest
 RUN npm install
