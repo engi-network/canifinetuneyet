@@ -1,9 +1,10 @@
 version: "3.9"
 
+x-test-framework: jest
 services:
   tests:
     build: .
-    command: jest --json | tee $ENGI_WORKING_DIR/jest.json
+    command: /bin/sh -c "jest --json | tee $ENGI_WORKING_DIR/jest.json"
     volumes:
       - type: volume
         source: output
