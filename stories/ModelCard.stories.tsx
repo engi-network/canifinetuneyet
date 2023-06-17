@@ -8,4 +8,6 @@ export default {
   }
 };
 
-export const M = () => <ModelCard id="davinci" organization="openai" tune base="davinci" />
+export const M = () => <ModelCard id="davinci" tune base="davinci" />
+
+export const MO = () => <ModelCard id="davinci" organization="openai" tune base="davinci" />

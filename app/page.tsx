@@ -69,7 +69,7 @@ export default function Home() {
         .filter(({ id }) => search ? id.includes(search) : true)
         .filter(({ tune }) => fineTunableOnly ? tune : true)
         .map(model => (
-            <ModelCard {...model} />
+            <ModelCard {...model} key={model.id} />
         ))}
       </div>
 
