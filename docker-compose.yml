@@ -1,14 +1,25 @@
 version: "3.9"
 
 x-test-framework: jest
+
+x-service:
+  &service
+  build:
+    context: .
+  volumes:
+    - type: volume
+      source: output
+      target: $ENGI_WORKING_DIR
+
 services:
+  storybook:
+    command: npm run storybook
+    <<: *service
   tests:
-    build: .
     command: /bin/sh -c "jest --json | tee $ENGI_WORKING_DIR/jest.json"
-    volumes:
-      - type: volume
-        source: output
-        target: $ENGI_WORKING_DIR
+    <<: *service
+    depends_on:
+      - storybook
 volumes:
   output:
     external: true
