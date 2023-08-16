@@ -15,11 +15,16 @@ services:
   storybook:
     command: npm run storybook
     <<: *service
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6007"]
+      timeout: 60s
+      retries: 3
   tests:
     command: /bin/sh -c "jest --json | tee $ENGI_WORKING_DIR/jest.json"
     <<: *service
     depends_on:
-      - storybook
+      storybook:
+        condition: service_healthy
 volumes:
   output:
     external: true
