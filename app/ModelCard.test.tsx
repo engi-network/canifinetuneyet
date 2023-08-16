@@ -1,4 +1,4 @@
-import { StorybookTest } from '@engi.network/design-matcher/plugin/types';
+import { StorybookTest } from '@engi.network/design-matcher/dist/types';
 
 const modelCardDesignTest: StorybookTest = {
   component: 'M',
