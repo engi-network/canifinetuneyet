@@ -18,7 +18,7 @@ const NoFineTune = () => (
 )
 
 
-const ModelCard = ({ tune, id, base }: Model) => (
+const ModelCard = ({ tune, id, base, organization }: Model) => (
   <div
     className={classNames({
         "group shadow rounded-lg px-5 py-4 max-w-lg transition-colors border bg-gray-500 dark:bg-neutral-800/30": true,
@@ -26,9 +26,9 @@ const ModelCard = ({ tune, id, base }: Model) => (
         "border-[#65feb7]": tune
         })}
   >
-    <div className='flex items-center space-x-4'>
+    <div className='flex items-center'>
       {tune ? <YesFineTune /> : <NoFineTune />}
-      <h2 className={`text-3xl font-semibold`}>
+      <h2 className={`text-3xl font-semibold ml-4`}>
         {id}
       </h2>
     </div>
@@ -38,6 +38,7 @@ const ModelCard = ({ tune, id, base }: Model) => (
         Base Model:{' '}{base}
       </p>
     )}
+
   </div>
 )
 

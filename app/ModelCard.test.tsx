@@ -1,4 +1,4 @@
-import { StorybookTest } from '@engi.network/design-matcher/plugin/types';
+import { StorybookTest } from '@engi.network/design-matcher/dist/types';
 
 const modelCardDesignTest: StorybookTest = {
   component: 'M',
@@ -11,4 +11,18 @@ const modelCardDesignTest: StorybookTest = {
 
 test('rendered <ModelCard> should match Figma design', async () => {
   await expect(modelCardDesignTest).toMatchDesign();
+});
+
+const modelCardWOrgDesignTest: StorybookTest = {
+  component: 'M',
+  story: 'MO',
+  design: 'app/ModelCardDesignWOrg.png',
+  args: {
+    tune: true,
+    organization: 'openai'
+  }
+};
+
+test('rendered <ModelCard organization={\'OpenAI\'}> should match Figma design', async () => {
+  await expect(modelCardWOrgDesignTest).toMatchDesign();
 });

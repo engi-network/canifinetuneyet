@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6007",
     "build-storybook": "storybook build",
     "test": "jest -c ./jest.config.js"
   },
@@ -28,7 +28,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
-    "@engi.network/design-matcher": "^0.1.0",
+    "@engi.network/design-matcher": "1.1.17",
     "@storybook/addon-essentials": "^7.0.18",
     "@storybook/addon-interactions": "^7.0.18",
     "@storybook/addon-links": "^7.0.18",
