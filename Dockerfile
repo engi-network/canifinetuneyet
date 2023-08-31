@@ -15,6 +15,8 @@ RUN apk add --no-cache \
   vips \
   ttf-freefont
 
+RUN apk --no-cache add --virtual .builds-deps build-base python3
+
 COPY . .
 
 # Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
