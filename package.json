@@ -9,7 +9,7 @@
     "lint": "next lint",
     "storybook": "storybook dev -p 6007",
     "build-storybook": "storybook build",
-    "test": "jest -c ./jest.config.js"
+    "test": "STORYBOOK_PORT=6007 jest -c ./jest.config.js"
   },
   "dependencies": {
     "@types/node": "20.2.5",
